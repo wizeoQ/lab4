@@ -53,3 +53,14 @@ dog = Dog("Кот")
 cat = Cat("Собака")
 print(dog.speak())
 print(cat.speak())
+
+# Полиморфизм
+def animal_sound(animal):
+    # Метод вызывает speak(), независимо от типа животного
+    print(animal.speak())
+
+
+# Полиморфизм: вызов одинакового метода для разных объектов
+wiz.l()
+animal_sound(dog)
+animal_sound(cat)
