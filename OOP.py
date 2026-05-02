@@ -21,13 +21,19 @@ class Vehicle:
     def get_fuel(self):
         print(f"Бак заполнен на {self.__fuel}%")
     
-    def waste(self, amount):
+    def waste_fuel(self, amount):
         self.__fuel -= amount
         if self.__fuel < 0:
             self.__fuel = 0
         print(f"Бензин потрачен на {amount}%\
               "f"\nБак заполнен на {self.__fuel}%")
-        
+    
+    def add_fuel(self, amount):
+        self.__fuel += amount
+        if self.__fuel > 100:
+            self.__fuel = 100
+        print(f"В бак добавлено {amount}% бензина\
+              "f"\nБак заполнен на {self.__fuel}%")
     def set_fuel(self):
         self.__fuel = 100
         print("Бак заполнен")
@@ -36,12 +42,12 @@ class Vehicle:
 car = Vehicle(120, 100)
 car.get_fuel()
 car.get_speed()
-car.waste(10)
-car.waste(20)
-car.waste(30)
-car.waste(40)
+car.waste_fuel(10)
+car.waste_fuel(20)
+car.waste_fuel(30)
+car.waste_fuel(40)
 car.get_speed()
-car.set_fuel()
+car.add_fuel(130)
 car.speed = 230
 car.get_speed()
 car.__fuel = 70
