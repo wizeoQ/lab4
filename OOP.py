@@ -13,13 +13,16 @@ class Vehicle:
         if not (0 <= fuel <=100):
             raise ValueError ("Значение топлива некорректно.")
             
+    
     def get_speed(self):
         if self.__fuel == 0:
             self.speed = 0
         print(f"Скорость - {self.speed}")
 
+    
     def get_fuel(self):
         print(f"Бак заполнен на {self.__fuel}%")
+    
     
     def waste_fuel(self, amount):
         self.__fuel -= amount
@@ -28,16 +31,22 @@ class Vehicle:
         print(f"Бензин потрачен на {amount}%\
               "f"\nБак заполнен на {self.__fuel}%")
     
+    
     def add_fuel(self, amount):
         self.__fuel += amount
         if self.__fuel > 100:
             self.__fuel = 100
         print(f"В бак добавлено {amount}% бензина\
               "f"\nБак заполнен на {self.__fuel}%")
+    
+    
     def set_fuel(self):
         self.__fuel = 100
         print("Бак заполнен")
-
+    
+    
+    def move(self):
+        print("Транспорт движется")
 
 car = Vehicle(120, 100)
 car.get_fuel()
@@ -53,4 +62,31 @@ car.get_speed()
 car.__fuel = 70
 car.get_fuel()
 
+# Наследование 
 wiz.l()
+car.move()
+
+class Car(Vehicle):
+    def move(self):
+        print("Машина движется")
+        
+class Bicycle(Vehicle):
+    def move(self):
+        print("Велосипед движется")
+        
+class Truck(Vehicle):
+    def move(self):
+        print("Грузовик движется")
+        
+car = Car(300,60)
+bicycle = Bicycle(20,1)
+truck = Truck(150,80)
+
+truck.get_fuel()
+bicycle.waste_fuel(1)
+
+# Полиморфизм
+wiz.l()
+car.move()
+bicycle.move()
+truck.move()
